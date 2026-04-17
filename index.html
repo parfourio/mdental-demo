@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>M Dental Jupiter | Kenneth A. Meinbach, DDS</title>
+
+  <script>
+    if (!/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)) {
+      window.location.replace('https://mdentaljupiter.com');
+    }
+  </script>
+
+  <style>
+    :root {
+      --navy: #1a3a5c;
+      --navy-dark: #122a44;
+      --navy-light: #234d7a;
+      --gold: #b8a96a;
+      --gold-light: #d4c48a;
+      --gold-pale: #f5f0e0;
+      --white: #ffffff;
+      --off-white: #f8f7f4;
+      --text: #1a1a1a;
+      --text-muted: #555;
+      --radius: 12px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: var(--text);
+      background: var(--white);
+    }
+
+    /* ── OUTREACH BANNER ── */
+    .outreach-banner {
+      background: var(--navy);
+      color: var(--gold-light);
+      text-align: center;
+      padding: 10px 20px;
+      font-size: 0.8rem;
+      font-family: 'Arial', sans-serif;
+      letter-spacing: 0.04em;
+    }
+    .outreach-banner strong { color: var(--white); }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 70px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+    }
+
+    .nav-logo {
+      text-decoration: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+    .nav-logo img {
+      height: 42px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.88rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold-light); }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--navy-dark) !important;
+      padding: 9px 20px;
+      border-radius: 6px;
+      font-weight: 700 !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy-dark) !important; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      background: none;
+      border: none;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 70px;
+      left: 0; right: 0;
+      background: var(--navy-dark);
+      z-index: 998;
+      padding: 20px 0;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a {
+      display: block;
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+      padding: 14px 40px;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      transition: background 0.2s, color 0.2s;
+    }
+    .mobile-menu a:hover { background: rgba(184,169,106,0.15); color: var(--gold-light); }
+    .mobile-menu a:last-child { border-bottom: none; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 600px;
+      background: url('https://mdentaljupiter.com/wp-content/uploads/sites/14/2024/09/m-dental-home-temp.jpg') center top / cover no-repeat;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(10,28,50,0.78) 0%, rgba(10,28,50,0.45) 55%, rgba(10,28,50,0.15) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 60px 60px 60px 60px;
+      max-width: 620px;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy-dark);
+      font-family: 'Arial', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 4px;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 16px;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+    }
+
+    .hero p {
+      font-family: 'Arial', sans-serif;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.88);
+      line-height: 1.7;
+      margin-bottom: 32px;
+      max-width: 480px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy-dark);
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 8px;
+      border: 2px solid rgba(255,255,255,0.6);
+      font-family: 'Arial', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
+
+    /* ── TRUST STRIP ── */
+    .trust-strip {
+      background: var(--navy-dark);
+      padding: 32px 60px;
+      display: flex;
+      justify-content: space-around;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      text-align: center;
+      color: var(--white);
+    }
+
+    .trust-number {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .trust-label {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* ── SECTION WRAPPER ── */
+    .section {
+      padding: 80px 60px;
+    }
+
+    .section-tag {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      color: var(--navy);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .section-subtitle {
+      font-family: 'Arial', sans-serif;
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: 560px;
+    }
+
+    .divider {
+      width: 48px;
+      height: 3px;
+      background: var(--gold);
+      margin: 18px 0 32px;
+      border-radius: 2px;
+    }
+
+    /* ── ABOUT ── */
+    .about-section {
+      background: var(--off-white);
+    }
+
+    .about-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 70px;
+      align-items: start;
+    }
+
+    .doctor-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(26,58,92,0.12);
+    }
+
+    .doctor-photo {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .doctor-info {
+      padding: 24px 28px 28px;
+    }
+
+    .doctor-name {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .doctor-title {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.85rem;
+      color: var(--gold);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      margin-bottom: 14px;
+    }
+
+    .doctor-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .badge {
+      background: var(--gold-pale);
+      color: var(--navy);
+      font-family: 'Arial', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.04em;
+    }
+
+    .about-text p {
+      font-family: 'Arial', sans-serif;
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+
+    .about-highlights {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .highlight-item {
+      background: var(--white);
+      border: 1px solid rgba(184,169,106,0.3);
+      border-radius: 10px;
+      padding: 18px 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .highlight-icon {
+      font-size: 1.5rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .highlight-text strong {
+      display: block;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 3px;
+    }
+
+    .highlight-text span {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    /* ── SERVICES ── */
+    .services-section {
+      background: var(--white);
+    }
+
+    .services-header {
+      max-width: 1100px;
+      margin: 0 auto 48px;
+    }
+
+    .services-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .service-card {
+      background: var(--off-white);
+      border: 1px solid rgba(184,169,106,0.2);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      cursor: default;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 28px rgba(26,58,92,0.12);
+      border-color: var(--gold);
+    }
+
+    .service-icon {
+      font-size: 2.2rem;
+      margin-bottom: 12px;
+      line-height: 1;
+    }
+
+    .service-name {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .service-desc {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ── INVISALIGN CALLOUT ── */
+    .invisalign-banner {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      padding: 60px;
+      text-align: center;
+      color: var(--white);
+    }
+
+    .invisalign-banner h2 {
+      font-size: 1.8rem;
+      margin-bottom: 14px;
+      color: var(--white);
+    }
+
+    .invisalign-banner p {
+      font-family: 'Arial', sans-serif;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.82);
+      max-width: 560px;
+      margin: 0 auto 28px;
+      line-height: 1.7;
+    }
+
+    .invisalign-tag {
+      display: inline-block;
+      background: rgba(184,169,106,0.25);
+      color: var(--gold-light);
+      font-family: 'Arial', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+
+    /* ── TEAM ── */
+    .team-section {
+      background: var(--off-white);
+    }
+
+    .team-header {
+      max-width: 1100px;
+      margin: 0 auto 48px;
+    }
+
+    .team-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .team-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(26,58,92,0.08);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .team-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 28px rgba(26,58,92,0.14);
+    }
+
+    .team-photo-area {
+      height: 200px;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      overflow: hidden;
+    }
+
+    .team-photo-area img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .team-info {
+      padding: 22px 24px 26px;
+    }
+
+    .team-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .team-role {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.8rem;
+      color: var(--gold);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .team-bio {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials-section {
+      background: var(--navy-dark);
+      padding: 80px 60px;
+    }
+
+    .testimonials-header {
+      max-width: 1100px;
+      margin: 0 auto 48px;
+      text-align: center;
+    }
+
+    .testimonials-header .section-tag { color: var(--gold-light); }
+    .testimonials-header .section-title { color: var(--white); }
+    .testimonials-header .divider { margin: 18px auto 0; }
+
+    .testimonials-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(184,169,106,0.2);
+      border-radius: var(--radius);
+      padding: 32px;
+    }
+
+    .stars {
+      color: var(--gold-light);
+      font-size: 1rem;
+      margin-bottom: 14px;
+      letter-spacing: 2px;
+    }
+
+    .testimonial-text {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.88);
+      line-height: 1.8;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── CONTACT ── */
+    .contact-section {
+      background: var(--off-white);
+    }
+
+    .contact-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: start;
+    }
+
+    .contact-info-block {
+      background: var(--navy);
+      border-radius: var(--radius);
+      padding: 40px;
+      color: var(--white);
+    }
+
+    .contact-info-block h3 {
+      font-size: 1.3rem;
+      margin-bottom: 6px;
+      color: var(--white);
+    }
+
+    .contact-info-block .sub {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 32px;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    .contact-row-icon {
+      font-size: 1.3rem;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .contact-row-text strong {
+      display: block;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 4px;
+    }
+
+    .contact-row-text span {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.6;
+    }
+
+    .hours-grid {
+      background: rgba(255,255,255,0.07);
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin-top: 24px;
+    }
+
+    .hours-title {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 12px;
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.8);
+      padding: 5px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .hours-row:last-child { border-bottom: none; }
+
+    .contact-form-side {}
+
+    .contact-form-side .section-tag { color: var(--gold); }
+    .contact-form-side .section-title { color: var(--navy); }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 7px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid rgba(26,58,92,0.25);
+      border-radius: 8px;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.92rem;
+      color: var(--text);
+      background: var(--white);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--navy);
+    }
+
+    .form-group textarea { height: 110px; resize: vertical; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .submit-btn {
+      background: var(--navy);
+      color: var(--white);
+      border: none;
+      padding: 15px 36px;
+      border-radius: 8px;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .submit-btn:hover { background: var(--navy-light); transform: translateY(-1px); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy-dark);
+      padding: 50px 60px 30px;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 50px;
+      margin-bottom: 40px;
+    }
+
+    .footer-logo-img {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .footer-tagline {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .footer-heading {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 16px;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--gold-light); }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 0 auto;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-copy {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .footer-par4 {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .footer-par4 a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    /* ─────────────────── RESPONSIVE ─────────────────── */
+    @media (max-width: 1024px) {
+      .about-inner { grid-template-columns: 280px 1fr; gap: 40px; }
+      .services-grid { grid-template-columns: repeat(3, 1fr); }
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      .hero {
+        height: 520px;
+        background-size: auto 100%;
+        background-position: 35% top;
+        background-color: var(--navy);
+      }
+
+      .hero-content { padding: 40px 24px; }
+      .hero h1 { font-size: 1.9rem; }
+      .hero p { font-size: 0.92rem; }
+
+      .trust-strip { padding: 28px 24px; gap: 28px; }
+      .trust-number { font-size: 1.8rem; }
+
+      .section { padding: 60px 24px; }
+      .invisalign-banner { padding: 50px 24px; }
+      .testimonials-section { padding: 60px 24px; }
+
+      .about-inner { grid-template-columns: 1fr; gap: 32px; }
+      .doctor-photo { height: 300px; }
+      .about-highlights { grid-template-columns: 1fr; }
+
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .team-grid { grid-template-columns: 1fr; }
+
+      .testimonials-grid { grid-template-columns: 1fr; }
+
+      .contact-inner { grid-template-columns: 1fr; }
+
+      .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+      footer { padding: 40px 24px 24px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- OUTREACH BANNER -->
+<div class="outreach-banner">
+  <strong>Demo Preview</strong> — Built by <strong>Par4 Technologies</strong> · This is a sample of what your site could look like. Questions? <strong>scott@parfour.io</strong>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="https://mdentaljupiter.com/wp-content/uploads/sites/14/2024/09/mdental-logo-white-e1727466334617.png"
+         alt="M Dental Jupiter"
+         onerror="this.style.display='none'" />
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#about">Our Team</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#invisalign">Invisalign®</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#contact" class="nav-cta">Book Appointment</a></li>
+  </ul>
+
+  <button class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="toggleMenu()">Our Team</a>
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#invisalign" onclick="toggleMenu()">Invisalign®</a>
+  <a href="#testimonials" onclick="toggleMenu()">Reviews</a>
+  <a href="#contact" onclick="toggleMenu()">📅 Book Appointment</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Jupiter, Florida · Est. 2007</div>
+    <h1>A Smile You'll<br>Love to Show Off</h1>
+    <p>Comprehensive family and cosmetic dentistry in the heart of Jupiter, FL. From routine cleanings to full smile makeovers — all in one practice.</p>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn-primary">Book an Appointment</a>
+      <a href="#services" class="btn-outline">View Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-item">
+    <div class="trust-number">17+</div>
+    <div class="trust-label">Years Serving Jupiter</div>
+  </div>
+  <div class="trust-item">
+    <div class="trust-number">13+</div>
+    <div class="trust-label">Services Offered</div>
+  </div>
+  <div class="trust-item">
+    <div class="trust-number">5★</div>
+    <div class="trust-label">Patient Reviews</div>
+  </div>
+  <div class="trust-item">
+    <div class="trust-number">NYU</div>
+    <div class="trust-label">Trained Dentist</div>
+  </div>
+  <div class="trust-item">
+    <div class="trust-number">Same-Day</div>
+    <div class="trust-label">Emergency Care</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="section about-section" id="about">
+  <div class="about-inner">
+    <div>
+      <div class="doctor-card">
+        <img class="doctor-photo"
+             src="https://mdentaljupiter.com/wp-content/uploads/sites/14/2020/12/K-Meinbach.png"
+             alt="Dr. Kenneth A. Meinbach"
+             onerror="this.style.background='linear-gradient(135deg, #1a3a5c 0%, #234d7a 100%)'; this.style.display='block';" />
+        <div class="doctor-info">
+          <div class="doctor-name">Dr. Kenneth A. Meinbach</div>
+          <div class="doctor-title">DDS · Lead Dentist & Owner</div>
+          <div class="doctor-badges">
+            <span class="badge">NYU College of Dentistry</span>
+            <span class="badge">Palm Beach Since 2007</span>
+            <span class="badge">Invisalign® Provider</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-text">
+      <div class="section-tag">Meet the Doctor</div>
+      <h2 class="section-title">Dentistry with Precision, Delivered with Care</h2>
+      <div class="divider"></div>
+      <p>Dr. Kenneth A. Meinbach is a graduate of NYU College of Dentistry and has been serving the Palm Beach community since 2007. His approach combines the latest techniques with a genuine commitment to patient comfort — making every visit as smooth and stress-free as possible.</p>
+      <p>Whether you're coming in for a routine cleaning, exploring cosmetic options, or dealing with a dental emergency, Dr. Meinbach and his team are here to provide exceptional, personalized care for the whole family.</p>
+
+      <div class="about-highlights">
+        <div class="highlight-item">
+          <div class="highlight-icon">🦷</div>
+          <div class="highlight-text">
+            <strong>Comprehensive Care</strong>
+            <span>Preventive, cosmetic, and restorative dentistry under one roof</span>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-icon">😊</div>
+          <div class="highlight-text">
+            <strong>Comfort-First Approach</strong>
+            <span>Sedation dentistry available for anxious patients</span>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-icon">📱</div>
+          <div class="highlight-text">
+            <strong>Easy Communication</strong>
+            <span>Text reminders, birthday messages & easy scheduling</span>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-icon">👨‍👩‍👧</div>
+          <div class="highlight-text">
+            <strong>Family Friendly</strong>
+            <span>Welcoming patients of all ages throughout Jupiter</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section services-section" id="services">
+  <div class="services-header">
+    <div class="section-tag">What We Offer</div>
+    <h2 class="section-title">Our Dental Services</h2>
+    <div class="divider"></div>
+    <p class="section-subtitle">From your first cleaning to a full smile transformation, we offer everything your family needs in one convenient Jupiter location.</p>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🦷</div>
+      <div class="service-name">Dental Bonding</div>
+      <div class="service-desc">Repair chips, cracks, and discoloration with tooth-colored resin for a seamless, natural look.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔗</div>
+      <div class="service-name">Dental Bridges</div>
+      <div class="service-desc">Replace one or more missing teeth with a fixed bridge anchored to surrounding healthy teeth.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">👑</div>
+      <div class="service-name">Dental Crowns</div>
+      <div class="service-desc">Restore damaged or weakened teeth with custom-crafted porcelain or ceramic crowns.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🪛</div>
+      <div class="service-name">Dental Implants</div>
+      <div class="service-desc">Permanent, natural-looking replacements that look, feel, and function like real teeth.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">😁</div>
+      <div class="service-name">Dentures & Partials</div>
+      <div class="service-desc">Custom full or partial dentures designed to restore your smile and chewing function.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🩺</div>
+      <div class="service-name">Extractions & Care</div>
+      <div class="service-desc">Gentle tooth extractions when necessary, with thorough aftercare guidance for smooth recovery.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔬</div>
+      <div class="service-name">Gum Disease Treatment</div>
+      <div class="service-desc">Early and advanced treatment options to stop gum disease in its tracks and protect your oral health.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">✨</div>
+      <div class="service-name">LUMINEERS®</div>
+      <div class="service-desc">Ultra-thin porcelain veneers placed without grinding down your natural tooth structure.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🩻</div>
+      <div class="service-name">Periodontal Therapy</div>
+      <div class="service-desc">Deep cleaning and gum health maintenance to prevent bone and tissue loss around your teeth.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">💉</div>
+      <div class="service-name">Root Canal Therapy</div>
+      <div class="service-desc">Save an infected tooth and relieve pain with modern root canal treatment — often painless.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">😴</div>
+      <div class="service-name">Sedation Dentistry</div>
+      <div class="service-desc">Relax completely during your procedure with safe, effective sedation options for every comfort level.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🧩</div>
+      <div class="service-name">Tooth Fillings</div>
+      <div class="service-desc">Tooth-colored composite fillings that blend beautifully with your natural smile — no silver required.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🌟</div>
+      <div class="service-name">Veneers</div>
+      <div class="service-desc">Custom porcelain shells that transform the shape, color, and size of your teeth for a stunning smile.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🦷</div>
+      <div class="service-name">Preventive Care</div>
+      <div class="service-desc">Routine cleanings, exams, X-rays, and fluoride treatments to keep your smile healthy for life.</div>
+    </div>
+  </div>
+</section>
+
+<!-- INVISALIGN CALLOUT -->
+<section class="invisalign-banner" id="invisalign">
+  <div class="invisalign-tag">Now Offering</div>
+  <h2>Invisalign® Clear Aligners</h2>
+  <p>Straighten your teeth discreetly with custom clear aligners — no metal braces, no awkward adjustments. As a certified Invisalign® provider, Dr. Meinbach can help you achieve the aligned smile you've always wanted.</p>
+  <a href="#contact" class="btn-primary">Get a Free Invisalign® Consultation</a>
+</section>
+
+<!-- TEAM -->
+<section class="section team-section">
+  <div class="team-header">
+    <div class="section-tag">Our Staff</div>
+    <h2 class="section-title">The Team Behind Your Smile</h2>
+    <div class="divider"></div>
+    <p class="section-subtitle">Our experienced, friendly team has been keeping Jupiter smiling for years. Many of our staff have been with us for over a decade.</p>
+  </div>
+
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-photo-area">
+        <img src="https://mdentaljupiter.com/wp-content/uploads/sites/14/2020/12/K-Meinbach.png"
+             alt="Dr. Kenneth Meinbach"
+             onerror="this.style.display='none'; this.parentElement.innerHTML='👨‍⚕️';" />
+      </div>
+      <div class="team-info">
+        <div class="team-name">Dr. Kenneth A. Meinbach</div>
+        <div class="team-role">DDS · Lead Dentist</div>
+        <div class="team-bio">NYU-trained dentist with over 17 years serving Palm Beach County. Committed to exceptional, personalized care for every patient.</div>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo-area">👩‍💼</div>
+      <div class="team-info">
+        <div class="team-name">Caryn</div>
+        <div class="team-role">Office Manager</div>
+        <div class="team-bio">University of Florida graduate who keeps the practice running smoothly. Caryn is often the first friendly voice you'll hear when you call.</div>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo-area">👩‍⚕️</div>
+      <div class="team-info">
+        <div class="team-name">Jennelle</div>
+        <div class="team-role">Dental Hygienist · Invisalign® Coordinator</div>
+        <div class="team-bio">With 14 years at M Dental, Jennelle is a cornerstone of the practice. She also coordinates all Invisalign® consultations and treatment tracking.</div>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo-area">🦷</div>
+      <div class="team-info">
+        <div class="team-name">Michelle</div>
+        <div class="team-role">Dental Hygienist</div>
+        <div class="team-bio">A second-generation dental hygienist who joined the M Dental family in 2018. Patients consistently rave about her gentle, thorough cleanings.</div>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo-area">😊</div>
+      <div class="team-info">
+        <div class="team-name">Marie</div>
+        <div class="team-role">Dental Hygienist</div>
+        <div class="team-bio">Over 20 years of hygiene experience, now serving patients part-time since 2021. Patients love Marie's calm, expert approach to oral care.</div>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo-area">📋</div>
+      <div class="team-info">
+        <div class="team-name">Diane</div>
+        <div class="team-role">Accounts Coordinator</div>
+        <div class="team-bio">Diane handles billing, insurance, and accounts with precision and patience. She makes the financial side of dental care as stress-free as possible.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section" id="testimonials">
+  <div class="testimonials-header">
+    <div class="section-tag">Patient Reviews</div>
+    <h2 class="section-title">What Our Patients Say</h2>
+    <div class="divider"></div>
+  </div>
+
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"Excellent!! Highly recommend M Dental Jupiter. Dr. Meinbach and his entire staff are wonderful. Professional, thorough, and incredibly kind."</p>
+      <div class="testimonial-author">— Charlene R.</div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"The hygienist was very detailed and did a fabulous job. I could tell she really cared about the state of my teeth and gums. Will definitely be back."</p>
+      <div class="testimonial-author">— Sharon D.</div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"I love that they send text appointment reminders and even remembered my birthday! Little things like that make this practice stand out. Great experience every time."</p>
+      <div class="testimonial-author">— Amy W.</div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"I've been going to M Dental for years and wouldn't go anywhere else. The whole team is warm and welcoming. Dr. Meinbach is thorough and really takes his time."</p>
+      <div class="testimonial-author">— Shari M.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact-section" id="contact">
+  <div class="contact-inner">
+    <div>
+      <div class="contact-info-block">
+        <h3>M Dental Jupiter</h3>
+        <div class="sub">Kenneth A. Meinbach, DDS</div>
+
+        <div class="contact-row">
+          <div class="contact-row-icon">📍</div>
+          <div class="contact-row-text">
+            <strong>Address</strong>
+            <span>425 Greenwich Circle, Suites 101–102<br>Jupiter, FL 33458</span>
+          </div>
+        </div>
+
+        <div class="contact-row">
+          <div class="contact-row-icon">📞</div>
+          <div class="contact-row-text">
+            <strong>Phone</strong>
+            <span>561.653.1163</span>
+          </div>
+        </div>
+
+        <div class="contact-row">
+          <div class="contact-row-icon">📠</div>
+          <div class="contact-row-text">
+            <strong>Fax</strong>
+            <span>561.653.1164</span>
+          </div>
+        </div>
+
+        <div class="contact-row">
+          <div class="contact-row-icon">✉️</div>
+          <div class="contact-row-text">
+            <strong>Email</strong>
+            <span>Info@Mdentaljupiter.com</span>
+          </div>
+        </div>
+
+        <div class="hours-grid">
+          <div class="hours-title">Office Hours</div>
+          <div class="hours-row"><span>Monday – Thursday</span><span>9:00 AM – 5:00 PM</span></div>
+          <div class="hours-row"><span>Friday</span><span>9:00 AM – 2:00 PM</span></div>
+          <div class="hours-row"><span>Saturday – Sunday</span><span>Closed</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form-side">
+      <div class="section-tag">Get in Touch</div>
+      <h2 class="section-title">Request an Appointment</h2>
+      <div class="divider"></div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="Jane" />
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Smith" />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Phone</label>
+          <input type="tel" placeholder="(561) 000-0000" />
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="jane@email.com" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Service Needed</label>
+        <select>
+          <option>Select a service...</option>
+          <option>General / Cleaning</option>
+          <option>Dental Bonding</option>
+          <option>Dental Bridge</option>
+          <option>Dental Crown</option>
+          <option>Dental Implants</option>
+          <option>Dentures & Partials</option>
+          <option>Extractions</option>
+          <option>Gum Disease Treatment</option>
+          <option>Invisalign® Consultation</option>
+          <option>LUMINEERS®</option>
+          <option>Periodontal Therapy</option>
+          <option>Root Canal Therapy</option>
+          <option>Sedation Dentistry</option>
+          <option>Tooth Fillings</option>
+          <option>Veneers</option>
+          <option>Emergency Visit</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Message (optional)</label>
+        <textarea placeholder="Tell us a bit about what you need or when you'd like to come in..."></textarea>
+      </div>
+
+      <button class="submit-btn">Request Appointment →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <img class="footer-logo-img"
+           src="https://mdentaljupiter.com/wp-content/uploads/sites/14/2024/09/mdental-logo-white-e1727466334617.png"
+           alt="M Dental Jupiter"
+           onerror="this.style.display='none'" />
+      <p class="footer-tagline">Comprehensive family and cosmetic dentistry serving Jupiter, FL since 2007. Dr. Kenneth A. Meinbach, DDS — NYU trained, community focused.</p>
+    </div>
+
+    <div>
+      <div class="footer-heading">Services</div>
+      <ul class="footer-links">
+        <li><a href="#services">Dental Bonding</a></li>
+        <li><a href="#services">Dental Implants</a></li>
+        <li><a href="#invisalign">Invisalign®</a></li>
+        <li><a href="#services">LUMINEERS®</a></li>
+        <li><a href="#services">Veneers</a></li>
+        <li><a href="#services">Root Canal</a></li>
+        <li><a href="#services">Sedation</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="footer-heading">Practice</div>
+      <ul class="footer-links">
+        <li><a href="#about">Meet Dr. Meinbach</a></li>
+        <li><a href="#about">Our Team</a></li>
+        <li><a href="#testimonials">Patient Reviews</a></li>
+        <li><a href="#contact">Book Appointment</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2024 M Dental Jupiter · Kenneth A. Meinbach, DDS · 425 Greenwich Circle, Jupiter, FL 33458</div>
+    <div class="footer-par4">Demo by <a href="https://parfour.io">Par4 Technologies</a></div>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        const offset = 70;
+        const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
